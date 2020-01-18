@@ -8,6 +8,8 @@ module.exports = override(
         libraryDirectory: 'es',
         style: true,
     }),
+
+    // 对antd的主题进行自定义
     addLessLoader({
         javascriptEnabled: true,
     }),
