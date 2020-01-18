@@ -1,9 +1,9 @@
 import React from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import './admin.less';
+import './login.less';
 import { reqLogin } from '../../api';
 
-class Admin extends React.Component<any, any> {
+class Login extends React.Component<any, any> {
     handleSubmit = (e: React.FormEvent) => {
         // 阻止事件到默认行为
         e.preventDefault();
@@ -65,5 +65,5 @@ class Admin extends React.Component<any, any> {
     }
 }
 
-const WrapAdmin = Form.create()(Admin);
-export default WrapAdmin;
+const WrapLogin = Form.create()(Login);
+export default WrapLogin;

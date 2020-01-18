@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Admin from './pages/admin/admin'
+import Login from './pages/login/login'
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
         <Switch>
-            <Route path='/admin' component={Admin}></Route>
+            <Route path='/admin' component={Login}></Route>
         </Switch>
     </BrowserRouter>
   );
