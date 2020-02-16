@@ -1,25 +1,38 @@
 import React from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import './login.less';
 import { reqLogin } from '../../api';
+import memory from '../../utils/memory';
 
+// 登陆页面
 class Login extends React.Component<any, any> {
+
     handleSubmit = (e: React.FormEvent) => {
         // 阻止事件到默认行为
         e.preventDefault();
         // 对所有表单字段进行校验
         this.props.form.validateFields(async (err: any, values: any) => {
             if (!err) {
-                const {username, password} = values;
+                const { username, password } = values;
                 console.log('Received values of form: ', values);
                 let response: any = await reqLogin(username, password);
-                console.log(response.data);
+                response = response.data;
+                if (response.code === 200) {
+                    // 登陆成功
+                    message.success("登陆成功! ");
+                    memory.user = response.data;
+                    this.props.history.replace("/");
+                } else {
+                    // 登陆失败
+                    message.error(response.msg);
+                }
             }
         });
     };
 
     render() {
-        const {getFieldDecorator} = this.props.form!;
+        const { getFieldDecorator } = this.props.form!;
+
         return (
             <div className="login">
                 <Form className="login-form" onSubmit={this.handleSubmit}>
