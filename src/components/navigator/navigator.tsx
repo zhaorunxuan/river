@@ -11,7 +11,7 @@ export default class Navigator extends React.Component<any, any> {
 
     // 根据navList的数据数组生成对应的标签数组
     getNavNodes = (list: NavNode[]) => {
-        // 使用
+        // 使用数组的reduce方法生成导航栏
         return list.reduce((pre, item) => {
             pre.push((
                 <Menu.Item key={item.key}>

@@ -65,9 +65,9 @@ class Login extends React.Component<any, any> {
                             valuePropName: 'checked',
                             initialValue: true,
                         })(<Checkbox style={{float: "left"}}>记住我</Checkbox>)}
-                        <a className="login-form-forgot" href="">
+                        <span className="login-form-forgot">
                             忘记密码
-                        </a>
+                        </span>
                         <Button type="primary" htmlType="submit" className="login-form-button">
                             登 陆
                         </Button>
@@ -78,5 +78,6 @@ class Login extends React.Component<any, any> {
     }
 }
 
+// 高阶组件
 const WrapLogin = Form.create()(Login);
 export default WrapLogin;

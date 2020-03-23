@@ -1,5 +1,6 @@
 import React from "react";
 import { Avatar, Layout, Menu } from 'antd';
+import storage from "../utils/storage";
 
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -7,6 +8,10 @@ const SubMenu = Menu.SubMenu;
 
 // 主页header组件
 export default class HeaderCustom extends React.Component<any, any> {
+
+    logout = () => {
+        storage.removeUser();
+    };
 
     render() {
         return (
@@ -25,7 +30,7 @@ export default class HeaderCustom extends React.Component<any, any> {
                         <Menu.Item key="setting:1">嗨 - Guest</Menu.Item>
                         <Menu.Item key="setting:2">个人信息</Menu.Item>
                         <Menu.Item key="logout">
-                            <span>退出登录</span>
+                            <span onClick={this.logout}>退出登录</span>
                         </Menu.Item>
                         <Menu.Item key="setting:3">系统设置</Menu.Item>
                     </SubMenu>
